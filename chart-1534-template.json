@@ -1,0 +1,483 @@
+{
+  "type": "XYChart",
+  "refs": [
+    {
+      "data": [
+        {
+          "轄區分局": "大雅分局",
+          "SUM(A1)": 0,
+          "SUM(A2)": 16,
+          "SUM(A3)": 126
+        },
+        {
+          "轄區分局": "太平分局",
+          "SUM(A1)": 0,
+          "SUM(A2)": 11,
+          "SUM(A3)": 4
+        },
+        {
+          "轄區分局": "烏日分局",
+          "SUM(A1)": 0,
+          "SUM(A2)": 4,
+          "SUM(A3)": 5
+        },
+        {
+          "轄區分局": "第一分局",
+          "SUM(A1)": 0,
+          "SUM(A2)": 11,
+          "SUM(A3)": 8
+        },
+        {
+          "轄區分局": "第二分局",
+          "SUM(A1)": 0,
+          "SUM(A2)": 96,
+          "SUM(A3)": 272
+        },
+        {
+          "轄區分局": "第三分局",
+          "SUM(A1)": 0,
+          "SUM(A2)": 48,
+          "SUM(A3)": 81
+        }
+      ]
+    },
+    {
+      "xAxis": {
+        "type": "CategoryAxis",
+        "settings": {
+          "categoryField": "轄區分局",
+          "maxDeviation": 0.1,
+          "renderer": {
+            "type": "AxisRendererX",
+            "settings": {
+              "minGridDistance": 15,
+              "cellStartLocation": 0.1,
+              "cellEndLocation": 0.9
+            },
+            "properties": {
+              "labels": {
+                "properties": {
+                  "template": {
+                    "settings": {
+                      "fontSize": "12px",
+                      "fontFamily": "Helvetica, Arial, sans-serif",
+                      "fill": {
+                        "type": "Color",
+                        "value": "#333333"
+                      },
+                      "oversizedBehavior": "truncate",
+                      "maxWidth": 80
+                    }
+                  }
+                }
+              },
+              "grid": {
+                "properties": {
+                  "template": {
+                    "settings": {
+                      "stroke": {
+                        "type": "Color",
+                        "value": "#90A4AE"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tooltip": {
+            "type": "Tooltip"
+          }
+        },
+        "properties": {
+          "data": "#data"
+        },
+        "children": [
+          {
+            "type": "Label",
+            "settings": {
+              "text": "轄區分局",
+              "x": {
+                "type": "Percent",
+                "value": 50
+              },
+              "centerX": {
+                "type": "Percent",
+                "value": 50
+              },
+              "fontSize": "12px",
+              "fontWeight": "bold"
+            }
+          }
+        ]
+      },
+      "yAxis": {
+        "type": "ValueAxis",
+        "settings": {
+          "min": 0,
+          "extraMax": 0.2,
+          "maxDeviation": 0.1,
+          "numberFormat": "##.",
+          "renderer": {
+            "type": "AxisRendererY",
+            "settings": {
+              "minGridDistance": 50
+            },
+            "properties": {
+              "labels": {
+                "properties": {
+                  "template": {
+                    "settings": {
+                      "fontSize": "12px",
+                      "fontFamily": "Helvetica, Arial, sans-serif"
+                    }
+                  }
+                }
+              },
+              "grid": {
+                "properties": {
+                  "template": {
+                    "settings": {
+                      "stroke": {
+                        "type": "Color",
+                        "value": "#90A4AE"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "children": [
+          {
+            "type": "Label",
+            "index": 0,
+            "settings": {
+              "text": "數值",
+              "rotation": -90,
+              "y": {
+                "type": "Percent",
+                "value": 50
+              },
+              "centerX": {
+                "type": "Percent",
+                "value": 50
+              },
+              "fontSize": "12px",
+              "fontWeight": "bold"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "series1": {
+        "type": "ColumnSeries",
+        "settings": {
+          "name": "SUM(A1)",
+          "xAxis": "#xAxis",
+          "yAxis": "#yAxis",
+          "valueYField": "SUM(A1)",
+          "categoryXField": "轄區分局",
+          "clustered": true,
+          "sequencedInterpolation": true,
+          "tooltip": {
+            "type": "Tooltip",
+            "settings": {
+              "pointerOrientation": "vertical",
+              "labelText": "{name}:{valueY.formatNumber('#.')}"
+            }
+          }
+        },
+        "properties": {
+          "data": "#data",
+          "columns": {
+            "properties": {
+              "template": {
+                "settings": {
+                  "width": {
+                    "type": "Percent",
+                    "value": 100
+                  }
+                }
+              }
+            }
+          },
+          "bullets": [
+            {
+              "type": "Bullet",
+              "settings": {
+                "locationX": 0.5,
+                "locationY": 0.5,
+                "sprite": {
+                  "type": "Label",
+                  "settings": {
+                    "text": "{valueY.formatNumber('#.')}",
+                    "populateText": true,
+                    "centerX": {
+                      "type": "Percent",
+                      "value": 50
+                    },
+                    "centerY": {
+                      "type": "Percent",
+                      "value": 50
+                    },
+                    "fontSize": "14px",
+                    "fontWeight": "bold",
+                    "fill": {
+                      "type": "Color",
+                      "value": "#333333"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "series2": {
+        "type": "ColumnSeries",
+        "settings": {
+          "name": "SUM(A2)",
+          "xAxis": "#xAxis",
+          "yAxis": "#yAxis",
+          "valueYField": "SUM(A2)",
+          "categoryXField": "轄區分局",
+          "clustered": true,
+          "sequencedInterpolation": true,
+          "tooltip": {
+            "type": "Tooltip",
+            "settings": {
+              "pointerOrientation": "vertical",
+              "labelText": "{name}:{valueY.formatNumber('#.')}"
+            }
+          }
+        },
+        "properties": {
+          "data": "#data",
+          "columns": {
+            "properties": {
+              "template": {
+                "settings": {
+                  "width": {
+                    "type": "Percent",
+                    "value": 100
+                  }
+                }
+              }
+            }
+          },
+          "bullets": [
+            {
+              "type": "Bullet",
+              "settings": {
+                "locationX": 0.5,
+                "locationY": 0.5,
+                "sprite": {
+                  "type": "Label",
+                  "settings": {
+                    "text": "{valueY.formatNumber('#.')}",
+                    "populateText": true,
+                    "centerX": {
+                      "type": "Percent",
+                      "value": 50
+                    },
+                    "centerY": {
+                      "type": "Percent",
+                      "value": 50
+                    },
+                    "fontSize": "14px",
+                    "fontWeight": "bold",
+                    "fill": {
+                      "type": "Color",
+                      "value": "#333333"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "series3": {
+        "type": "ColumnSeries",
+        "settings": {
+          "name": "SUM(A3)",
+          "xAxis": "#xAxis",
+          "yAxis": "#yAxis",
+          "valueYField": "SUM(A3)",
+          "categoryXField": "轄區分局",
+          "clustered": true,
+          "sequencedInterpolation": true,
+          "tooltip": {
+            "type": "Tooltip",
+            "settings": {
+              "pointerOrientation": "vertical",
+              "labelText": "{name}:{valueY.formatNumber('#.')}"
+            }
+          }
+        },
+        "properties": {
+          "data": "#data",
+          "columns": {
+            "properties": {
+              "template": {
+                "settings": {
+                  "width": {
+                    "type": "Percent",
+                    "value": 100
+                  }
+                }
+              }
+            }
+          },
+          "bullets": [
+            {
+              "type": "Bullet",
+              "settings": {
+                "locationX": 0.5,
+                "locationY": 0.5,
+                "sprite": {
+                  "type": "Label",
+                  "settings": {
+                    "text": "{valueY.formatNumber('#.')}",
+                    "populateText": true,
+                    "centerX": {
+                      "type": "Percent",
+                      "value": 50
+                    },
+                    "centerY": {
+                      "type": "Percent",
+                      "value": 50
+                    },
+                    "fontSize": "14px",
+                    "fontWeight": "bold",
+                    "fill": {
+                      "type": "Color",
+                      "value": "#333333"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "settings": {
+    "panX": false,
+    "panY": false,
+    "wheelX": "panX",
+    "wheelY": "zoomX",
+    "layout": "vertical",
+    "paddingTop": 16,
+    "paddingRight": 20,
+    "paddingBottom": 16,
+    "paddingLeft": 20,
+    "colors": {
+      "type": "ColorSet",
+      "settings": {
+        "colors": [
+          {
+            "type": "Color",
+            "value": "#6DE082"
+          },
+          {
+            "type": "Color",
+            "value": "#3BC5C5"
+          },
+          {
+            "type": "Color",
+            "value": "#10847C"
+          },
+          {
+            "type": "Color",
+            "value": "#88DFCB"
+          },
+          {
+            "type": "Color",
+            "value": "#48CE98"
+          },
+          {
+            "type": "Color",
+            "value": "#1FBACC"
+          },
+          {
+            "type": "Color",
+            "value": "#00AAA9"
+          },
+          {
+            "type": "Color",
+            "value": "#0A94BE"
+          },
+          {
+            "type": "Color",
+            "value": "#5FB4CE"
+          },
+          {
+            "type": "Color",
+            "value": "#B9EEE3"
+          }
+        ]
+      }
+    },
+    "cursor": {
+      "type": "XYCursor",
+      "settings": {
+        "behavior": "none",
+        "xAxis": "#xAxis"
+      }
+    }
+  },
+  "properties": {
+    "xAxes": [
+      "#xAxis"
+    ],
+    "yAxes": [
+      "#yAxis"
+    ],
+    "series": [
+      "#series1",
+      "#series2",
+      "#series3"
+    ]
+  },
+  "children": [
+    {
+      "type": "Legend",
+      "settings": {
+        "x": {
+          "type": "Percent",
+          "value": 50
+        },
+        "centerX": {
+          "type": "Percent",
+          "value": 50
+        },
+        "layout": "grid"
+      },
+      "properties": {
+        "data": [
+          "#series1",
+          "#series2",
+          "#series3"
+        ],
+        "labels": {
+          "properties": {
+            "template": {
+              "settings": {
+                "fontSize": "14px",
+                "fill": {
+                  "type": "Color",
+                  "value": "#333333"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
